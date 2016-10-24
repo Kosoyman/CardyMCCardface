@@ -4,7 +4,7 @@ import model.rules.*;
 
 public class Dealer extends Player {
 
-  private Deck m_deck;
+  Deck m_deck;
   private INewGameStrategy m_newGameRule;
   private IHitStrategy m_hitRule;
 
