@@ -1,5 +1,10 @@
 package model;
 
+import model.rules.IHitStrategy;
+import model.rules.RulesFactory;
+
+import java.util.List;
+
 public class Game {
 
   private Dealer m_dealer;
@@ -34,14 +39,7 @@ public class Game {
   
   public boolean Stand()
   {
-    if (m_dealer.m_deck != null)
-    {
-      m_dealer.ShowHand();
-      for (m_dealer.GetHand())
-      {
-        m_dealer.GetHand();
-      }
-    }
+    m_dealer.Stand();
 
     // TODO: Implement this according to Game_Stand.sequencediagram
     return true;

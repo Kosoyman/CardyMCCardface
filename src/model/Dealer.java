@@ -29,7 +29,22 @@ public class Dealer extends Player {
     }
     return false;
   }
-
+  public boolean Stand() {
+    if (this.m_deck != null)
+    {
+      this.ShowHand();
+      for (Card c : this.GetHand()) {
+        c.Show(true);
+      }
+      while (this.m_hitRule.DoHit(this)) {
+        this.m_hitRule.DoHit(this);
+        Card k = this.m_deck.GetCard();
+        k.Show(true);
+        this.DealCard(k);
+      }
+    }
+    return true;
+  }
   public boolean Hit(Player a_player) {
     if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver()) {
       Card c;
@@ -57,5 +72,4 @@ public class Dealer extends Player {
     }
     return false;
   }
-  
 }

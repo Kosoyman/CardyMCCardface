@@ -10,26 +10,26 @@ public class Player {
 
   public Player()
   {
-  
+
     m_hand = new LinkedList<Card>();
     System.out.println("Hello List World");
   }
-  
+
   public void DealCard(Card a_addToHand)
   {
     m_hand.add(a_addToHand);
   }
-  
+
   public Iterable<Card> GetHand()
   {
     return m_hand;
   }
-  
+
   public void ClearHand()
   {
     m_hand.clear();
   }
-  
+
   public void ShowHand()
   {
     for(Card c : m_hand)
@@ -37,7 +37,7 @@ public class Player {
       c.Show(true);
     }
   }
-  
+
   public int CalcScore()
   {
     // the number of scores is dependant on the number of scorable values
@@ -47,8 +47,8 @@ public class Player {
         2, 3, 4, 5, 6, 7, 8, 9, 10, 10 ,10 ,10, 11
     };
     assert (cardScores.length == Card.Value.Count.ordinal()) : "Card Scores array size does not match number of card values";
-  
-    
+
+
     int score = 0;
 
     for(Card c : GetHand()) {
