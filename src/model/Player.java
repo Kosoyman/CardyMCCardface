@@ -20,10 +20,7 @@ public class Player {
     m_hand.add(a_addToHand);
   }
 
-  public Iterable<Card> GetHand()
-  {
-    return m_hand;
-  }
+  public Iterable<Card> GetHand() {return m_hand;}
 
   public void ClearHand()
   {

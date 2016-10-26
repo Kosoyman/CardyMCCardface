@@ -40,8 +40,6 @@ public class Game {
   public boolean Stand()
   {
     m_dealer.Stand();
-
-    // TODO: Implement this according to Game_Stand.sequencediagram
     return true;
   }
   

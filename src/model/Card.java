@@ -21,7 +21,7 @@ public class Card {
     Eight,
     Nine,
     Ten,
-    Knight,
+    Jack,
     Queen,
     King,
     Ace,
