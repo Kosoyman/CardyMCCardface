@@ -1,9 +1,13 @@
 package controller;
 
+import model.CardDealtObserver;
 import view.IView;
 import model.Game;
 
-public class PlayGame {
+import java.util.ArrayList;
+
+public class PlayGame  {
+
 
   public boolean Play(Game a_game, IView a_view) {
     a_view.DisplayWelcomeMessage();

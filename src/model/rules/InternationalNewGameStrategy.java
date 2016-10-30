@@ -1,11 +1,8 @@
 package model.rules;
 
-import model.Deck;
-import model.Dealer;
-import model.Player;
-import model.Card;
+import model.*;
 
-class InternationalNewGameStrategy implements INewGameStrategy {
+class InternationalNewGameStrategy extends ADeal implements INewGameStrategy {
 
   public boolean NewGame(Deck a_deck, Dealer a_dealer, Player a_player) {
     Card c;
