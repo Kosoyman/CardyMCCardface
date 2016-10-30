@@ -10,6 +10,7 @@ class AmericanNewGameStrategy extends ADeal implements INewGameStrategy  {
     DealToDealer(a_deck,a_dealer);
 
     DealToPlayer(a_deck,a_player);
+
     DealHidden(a_deck,a_dealer);
 
     return true;
