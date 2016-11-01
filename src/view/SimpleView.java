@@ -20,16 +20,6 @@ public class SimpleView implements IView
           }
         }
 
-        private void CheckInput(int input)
-        {
-            if(input == 'p')
-            {
-
-            }
-
-        }
-
-
         public void DisplayCard(model.Card a_card)
         {
             System.out.println("" + a_card.GetValue() + " of " + a_card.GetColor());
