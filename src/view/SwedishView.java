@@ -58,6 +58,26 @@ public class SwedishView implements IView
             }
         }
 
+        @Override
+        public char GetPlay() {
+            return play;
+        }
+
+        @Override
+        public char GetHit() {
+            return hit;
+        }
+
+        @Override
+        public char GetStand() {
+            return stand;
+        }
+
+        @Override
+        public char GetQuit() {
+            return quit;
+        }
+
         private void DisplayHand(String a_name, Iterable<model.Card> a_hand, int a_score)
         {
             System.out.println(a_name + " Har: " + a_score);

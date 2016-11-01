@@ -20,6 +20,16 @@ public class SimpleView implements IView
           }
         }
 
+        private void CheckInput(int input)
+        {
+            if(input == 'p')
+            {
+
+            }
+
+        }
+
+
         public void DisplayCard(model.Card a_card)
         {
             System.out.println("" + a_card.GetValue() + " of " + a_card.GetColor());
@@ -59,4 +69,24 @@ public class SimpleView implements IView
             }
             
         }
+
+    @Override
+    public char GetPlay() {
+        return play;
     }
+
+    @Override
+    public char GetHit() {
+        return hit;
+    }
+
+    @Override
+    public char GetStand() {
+        return stand;
+    }
+
+    @Override
+    public char GetQuit() {
+        return quit;
+    }
+}

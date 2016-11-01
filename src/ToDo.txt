@@ -1,5 +1,3 @@
---//TODO: Remove the bad, hidden, dependency between the controller and view (new game, hit, stand)
- -
  --//TODO: Design and implement a variable rules for who wins the game.
  -This variation could for example vary who wins on an equal score (in one implementation the Dealer wins, in the other the Player).
  -The design should make it easy to add other variants without changing the Dealer.

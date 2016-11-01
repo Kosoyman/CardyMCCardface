@@ -18,19 +18,19 @@ public class PlayGame {
 
     int input = a_view.GetInput();
     
-    if (input == 'p')
+    if (input == a_view.GetPlay())
     {
         a_game.NewGame();
     }
-    else if (input == 'h')
+    else if (input == a_view.GetHit())
     {
         a_game.Hit();
     }
-    else if (input == 's')
+    else if (input == a_view.GetStand())
     {
         a_game.Stand();
     }
 
-    return input != 'q';
+    return input != a_view.GetQuit();
   }
 }
