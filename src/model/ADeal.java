@@ -3,7 +3,7 @@ package model;
 /**
  * Created by Максим on 26-Oct-16.
  */
-public abstract  class ADeal {
+public abstract class ADeal {
 
     public void DealToPlayer(Deck c, Player p) {
         Card card=c.GetCard();
