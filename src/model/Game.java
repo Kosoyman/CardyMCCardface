@@ -3,7 +3,6 @@ package model;
 import model.rules.IHitStrategy;
 import model.rules.RulesFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -15,10 +14,8 @@ public class Game {
   {
     m_dealer = new Dealer(new model.rules.RulesFactory());
     m_player = new Player();
-
   }
-
-
+    
     
   public boolean IsGameOver()
   {

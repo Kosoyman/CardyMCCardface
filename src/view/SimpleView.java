@@ -14,7 +14,6 @@ public class SimpleView implements IView
         {
           try {
             return System.in.read();
-
           } catch (java.io.IOException e) {
             System.out.println("" + e);
             return 0;

@@ -1,17 +1,30 @@
 package model.rules;
 
-import model.*;
+import model.Deck;
+import model.Dealer;
+import model.Player;
+import model.Card;
 
-class AmericanNewGameStrategy extends ADeal implements INewGameStrategy  {
+class AmericanNewGameStrategy implements INewGameStrategy {
 
   public boolean NewGame(Deck a_deck, Dealer a_dealer, Player a_player) {
-    DealToPlayer(a_deck,a_player);
+    Card c;
 
-    DealToDealer(a_deck,a_dealer);
+    c = a_deck.GetCard();
+    c.Show(true);
+    a_player.DealCard(c);
 
-    DealToPlayer(a_deck,a_player);
+    c = a_deck.GetCard();
+    c.Show(true);
+    a_dealer.DealCard(c);
 
-    DealHidden(a_deck,a_dealer);
+    c = a_deck.GetCard();
+    c.Show(true);
+    a_player.DealCard(c);
+
+    c = a_deck.GetCard();
+    c.Show(false);
+    a_dealer.DealCard(c);
 
     return true;
   }
