@@ -38,9 +38,6 @@ public class Dealer extends Player {
       }
       while (this.m_hitRule.DoHit(this)) {
         this.m_hitRule.DoHit(this);
-        Card c = this.m_deck.GetCard();
-        c.Show(true);
-        this.DealCard(c);
       }
     }
     return true;
