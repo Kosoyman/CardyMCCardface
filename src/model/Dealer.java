@@ -61,15 +61,15 @@ public class Dealer extends Player {
   }
 
   public boolean IsDealerWinner(Player a_player) {
-//    if (a_player.CalcScore() > g_maxScore) {
-//      return true;
-//    } else if (CalcScore() > g_maxScore) {
-//      return false;
-//    }
-//    return CalcScore() >= a_player.CalcScore();
+                          //    if (a_player.CalcScore() > g_maxScore) {
+                          //      return true;
+                          //    } else if (CalcScore() > g_maxScore) {
+                          //      return false;
+                          //    }
+                          //    return CalcScore() >= a_player.CalcScore();
 
-
-
+    //check the game won strategy here to determine winner when the game's over
+    return m_gameWon.dealerWon(a_player, this, a_player.g_maxScore);
   }
 
   public boolean IsGameOver() {
