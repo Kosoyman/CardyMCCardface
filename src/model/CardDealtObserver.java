@@ -5,7 +5,7 @@ package model;
  */
 public interface CardDealtObserver {
 
-    void CardDealt (int cardValue);
+    void CardDealt (Card theCard);
 
 
 }

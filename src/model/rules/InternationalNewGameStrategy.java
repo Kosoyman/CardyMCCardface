@@ -2,14 +2,13 @@ package model.rules;
 
 import model.*;
 
-class InternationalNewGameStrategy extends ADeal implements INewGameStrategy {
+class InternationalNewGameStrategy  implements INewGameStrategy {
 
   public boolean NewGame(Deck a_deck, Dealer a_dealer, Player a_player) {
-    DealToPlayer(a_deck,a_player);
+    a_player.CardFromDeck(a_deck);
+    a_dealer.CardFromDeck(a_deck);
+    a_player.CardFromDeck(a_deck);
 
-    DealToDealer(a_deck,a_dealer);
-
-    DealToPlayer(a_deck,a_player);
   
     return true;
   }
