@@ -6,6 +6,4 @@ package model;
 public interface CardDealtObserver {
 
     void CardDealt (Card theCard);
-
-
 }

@@ -1,90 +1,76 @@
 package model;
 
 import model.rules.*;
-
 import java.util.ArrayList;
 
 public class Dealer extends Player {
 
-  Deck m_deck;
-  private INewGameStrategy m_newGameRule;
-  private IHitStrategy m_hitRule;
-  private ArrayList<CardDealtObserver> subscribers;
-  public Dealer(RulesFactory a_rulesFactory) {
-  
-    m_newGameRule = a_rulesFactory.GetNewGameRule();
-    m_hitRule = a_rulesFactory.GetHitRule();
-    subscribers=new ArrayList<CardDealtObserver>();
-    /*for(Card c : m_deck.GetCards()) {
-      c.Show(true);
-      System.out.println("" + c.GetValue() + " of " + c.GetColor());
-    }    */
-  }
+    Deck m_deck;
+    private INewGameStrategy m_newGameRule;
+    private IHitStrategy m_hitRule;
+    private ArrayList<CardDealtObserver> subscribers;
 
+    public Dealer(RulesFactory a_rulesFactory) {
 
-  public void addSub(CardDealtObserver sub) {
-
-    subscribers.add(sub);
-  }
-
-
-  public boolean NewGame(Player a_player) {
-
-    if (m_deck == null || IsGameOver()) {
-      m_deck = new Deck();
-      ClearHand();
-      a_player.ClearHand();
-      return m_newGameRule.NewGame(m_deck, this, a_player);   
+        m_newGameRule = a_rulesFactory.GetNewGameRule();
+        m_hitRule = a_rulesFactory.GetHitRule();
+        subscribers=new ArrayList<CardDealtObserver>();
     }
-    return false;
-  }
-  public boolean Stand() {
-    if (this.m_deck != null)
-    {
-      this.ShowHand();
-      for (Card c : this.GetHand()) {
-        c.Show(true);
-      }
-      while (this.m_hitRule.DoHit(this)) {
-        Card c = this.CardFromDeck(m_deck);
-        for (CardDealtObserver obs : subscribers) {
-          obs.CardDealt(c);
-      }
+
+    public void addSub(CardDealtObserver sub) {subscribers.add(sub);}
+
+    public boolean NewGame(Player a_player) {
+
+        if (m_deck == null || IsGameOver()) {
+            m_deck = new Deck();
+            ClearHand();
+            a_player.ClearHand();
+            return m_newGameRule.NewGame(m_deck, this, a_player);
+        }
+        return false;
     }
-    return true;
-  }return false;}
+    public boolean Stand() {
+        if (this.m_deck != null)
+        {
+            this.ShowHand();
+            for (Card c : this.GetHand()) {
+                c.Show(true);
+            }
+            while (this.m_hitRule.DoHit(this)) {
+                Card c = this.CardFromDeck(m_deck);
+                for (CardDealtObserver obs : subscribers) {
+                    obs.CardDealt(c);
+                }
+            }
+            return true;
+        }return false;}
 
-  public boolean Hit(Player a_player) {
-    if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver()) {
-      Card c = a_player.CardFromDeck(m_deck);
-      for (CardDealtObserver obs : subscribers) {
-        obs.CardDealt(c);
-      }
-      
-      return true;
+    public boolean Hit(Player a_player) {
+        if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver()) {
+            Card c = a_player.CardFromDeck(m_deck);
+            for (CardDealtObserver obs : subscribers) {
+                obs.CardDealt(c);
+            }
+
+            return true;
+        }
+        return false;
     }
-    return false;
-  }
 
-  public boolean IsDealerWinner(Player a_player) {
-    if (a_player.CalcScore() > g_maxScore) {
-      return true;
-    } else if (CalcScore() > g_maxScore) {
-      return false;
+    public boolean IsDealerWinner(Player a_player) {
+        if (a_player.CalcScore() > g_maxScore) {
+            return true;
+        } else if (CalcScore() > g_maxScore) {
+            return false;
+        }
+        return CalcScore() >= a_player.CalcScore();
     }
-    return CalcScore() >= a_player.CalcScore();
-  }
 
-  public boolean IsGameOver() {
-    if (m_deck != null && m_hitRule.DoHit(this) != true) {
-        return true;
+    public boolean IsGameOver() {
+        if (m_deck != null && m_hitRule.DoHit(this) != true) {
+            return true;
+        }
+        return false;
     }
-    return false;
-  }
-
-  public void CardDealt(int cardValue) {
-
-  }
-
 
 }

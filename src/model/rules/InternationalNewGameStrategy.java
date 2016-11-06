@@ -8,8 +8,6 @@ class InternationalNewGameStrategy  implements INewGameStrategy {
     a_player.CardFromDeck(a_deck);
     a_dealer.CardFromDeck(a_deck);
     a_player.CardFromDeck(a_deck);
-
-  
     return true;
   }
 }
