@@ -5,9 +5,13 @@ import model.*;
 class InternationalNewGameStrategy  implements INewGameStrategy {
 
   public boolean NewGame(Deck a_deck, Dealer a_dealer, Player a_player) {
-    a_player.CardFromDeck(a_deck);
-    a_dealer.CardFromDeck(a_deck);
-    a_player.CardFromDeck(a_deck);
+
+    Card c = AbstractGetCard.GetCard(a_deck, true);
+    a_player.DealCard(c);
+    c = AbstractGetCard.GetCard(a_deck, true);
+    a_dealer.DealCard(c);
+    c = AbstractGetCard.GetCard(a_deck, true);
+    a_player.DealCard(c);
     return true;
   }
 }

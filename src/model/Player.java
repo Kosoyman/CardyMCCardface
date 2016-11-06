@@ -14,21 +14,6 @@ public class Player {
         System.out.println("Hello List World");
     }
 
-    public Card CardFromDeck(Deck a_deck) {
-        Card c;
-        c = a_deck.GetCard();
-        c.Show(true);
-        this.DealCard(c);
-        return c;
-    }
-    public Card CardFromDeckHidden(Deck a_deck) {
-        Card c;
-        c = a_deck.GetCard();
-        c.Show(false);
-        this.DealCard(c);
-        return c;
-    }
-
     public void DealCard(Card a_addToHand) {
         m_hand.add(a_addToHand);
     }
