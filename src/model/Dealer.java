@@ -37,8 +37,7 @@ public class Dealer extends Player {
                 c.Show(true);
             }
             while (this.m_hitRule.DoHit(this)) {
-                Card c = AbstractGetCard.GetCard(m_deck, true);
-                this.DealCard(c);
+                Card c = this.CardFromDeck(m_deck, true);
                 for (CardDealtObserver obs : subscribers) {
                     obs.CardDealt(c);
                 }
@@ -48,8 +47,7 @@ public class Dealer extends Player {
 
     public boolean Hit(Player a_player) {
         if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver()) {
-            Card c = AbstractGetCard.GetCard(m_deck, true);
-            a_player.DealCard(c);
+            Card c = a_player.CardFromDeck(m_deck, true);
             for (CardDealtObserver obs : subscribers) {
                 obs.CardDealt(c);
             }

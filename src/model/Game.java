@@ -1,11 +1,5 @@
 package model;
 
-import model.rules.IHitStrategy;
-import model.rules.RulesFactory;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Game {
 
   private Dealer m_dealer;
