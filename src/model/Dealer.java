@@ -33,9 +33,6 @@ public class Dealer extends Player {
         if (this.m_deck != null)
         {
             this.ShowHand();
-            for (Card c : this.GetHand()) {
-                c.Show(true);
-            }
             while (this.m_hitRule.DoHit(this)) {
                 Card c = this.CardFromDeck(m_deck, true);
                 for (CardDealtObserver obs : subscribers) {
@@ -65,6 +62,7 @@ public class Dealer extends Player {
         }
         return CalcScore() >= a_player.CalcScore();
     }
+
 
     public boolean IsGameOver() {
         if (m_deck != null && m_hitRule.DoHit(this) != true) {

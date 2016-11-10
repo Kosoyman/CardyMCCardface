@@ -18,13 +18,11 @@ public class Player {
         Card c;
         c = a_deck.GetCard();
         c.Show(show);
-        this.DealCard(c);
+        this.AddToHand(c);
         return c;
     }
 
-    public void DealCard(Card a_addToHand) {
-        m_hand.add(a_addToHand);
-    }
+    public void AddToHand(Card c) {m_hand.add(c);}
 
     public Iterable<Card> GetHand() {
         return m_hand;
